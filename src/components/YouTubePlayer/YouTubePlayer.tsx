@@ -1,15 +1,14 @@
 import React, { useEffect, useRef } from 'react';
 import { FaYoutube } from 'react-icons/fa';
 import { useTypedDispatch, useTypedSelector } from '../../hooks';
-import { getYoutubeVideoTrailer } from '../../MoviesApi';
-import { youtubeVideoTrailer } from '../../redux/selectors';
-import { useParams } from 'react-router-dom';
 import css from './YouTubePlayer.module.scss';
+import { RootState } from '../../redux/store';
+import { getYoutubeVideoTrailer } from '../../MoviesApi';
 
 interface MyYouTubePlayerProps {
   movieId: string;
-  myDispatch: (id: number) => Promise<{ key: string }>;
-  mySelector: (state: []) => { key: string }[];
+  myDispatch: (id: number) => ReturnType<typeof getYoutubeVideoTrailer>;
+  mySelector: (state: RootState) => { key: string };
 }
 
 const MyYouTubePlayer: React.FC<MyYouTubePlayerProps> = ({
@@ -19,7 +18,7 @@ const MyYouTubePlayer: React.FC<MyYouTubePlayerProps> = ({
 }) => {
   const playerRef = useRef<HTMLDivElement>(null);
   const dispatch = useTypedDispatch();
-  const video = useTypedSelector(mySelector)[0];
+  const video = useTypedSelector(mySelector);
 
   useEffect(() => {
     const fetchVideoTrailer = async () => {

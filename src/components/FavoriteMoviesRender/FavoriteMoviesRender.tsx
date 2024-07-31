@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useUser } from '../../context';
 import { firestore } from '../../Firebase';
@@ -10,7 +10,6 @@ const FavoriteMoviesRender: FC = () => {
   const { user } = useUser();
   const movies = useTypedSelector(favoriteMovies);
   const dispatch = useTypedDispatch();
-  const isLoading = useTypedSelector((state) => state.isLoading);
   useEffect(() => {
     const fetchMovies = async () => {
       if (!user) return;
@@ -55,9 +54,7 @@ const FavoriteMoviesRender: FC = () => {
 
   return (
     <div className={css.container}>
-      {isLoading ? (
-        <p>Loading...</p>
-      ) : movies.length === 0 ? (
+      {movies.length === 0 ? (
         <p>No favorite movies found.</p>
       ) : (
         <ul className={css.list}>

@@ -8,7 +8,7 @@ import SerialsRender from '../SerialsRender/SerialsRender';
 const TopRatedSerials: FC = () => {
   const dispatch = useTypedDispatch();
   const clearPage = () => {
-    dispatch(clearTopRatedSerials([]));
+    dispatch(clearTopRatedSerials());
   };
   return (
     <div>

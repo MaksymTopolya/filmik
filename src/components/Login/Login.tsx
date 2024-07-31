@@ -1,13 +1,13 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
-import { useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import { useTypedDispatch } from '../../hooks';
 import { auth } from '../../Firebase';
 import { Link } from 'react-router-dom';
 import css from './Login.module.scss';
 import { useUser } from '../../context';
-const Login = () => {
+const Login: FC = () => {
   const { user, setUser } = useUser();
   const dispatch = useTypedDispatch();
   useEffect(() => {

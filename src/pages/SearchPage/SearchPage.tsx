@@ -10,7 +10,3 @@ const SearchPage: FC = () => {
 };
 
 export default SearchPage;
-
-// rafc
-// imp
-// imd

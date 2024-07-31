@@ -177,7 +177,7 @@ export const getYoutubeVideoTrailer = createAsyncThunk<{ key: string }, number>(
       const response = await axiosInstance.get(
         `/movie/${id}/videos?language=en-US`,
       );
-      return response.data.results;
+      return response.data.results[0];
     } catch (error) {
       return thunkApi.rejectWithValue(error);
     }

@@ -13,7 +13,7 @@ import SerialsRender from '../SerialsRender/SerialsRender';
 export const RecommendedSerials: FC = () => {
   const dispatch = useTypedDispatch();
   const clearPage = () => {
-    dispatch(clearRecommendedSerials([]));
+    dispatch(clearRecommendedSerials());
   };
   return (
     <div>

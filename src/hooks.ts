@@ -1,10 +1,10 @@
-import { RootState } from '@reduxjs/toolkit/query';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
-import { AppDispatch } from './redux/store';
+import { AppDispatch, RootState } from './redux/store';
 import { useCallback } from 'react';
 import { getRecommendedMovies } from './MoviesApi';
 
 export const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector;
+
 export const useTypedDispatch = () => useDispatch<AppDispatch>();
 
 export const useRandomRecommendedMovies = () => {

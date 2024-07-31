@@ -4,7 +4,6 @@ import { initialStateTypeSerials } from './serialsSlice';
 export interface RootState {
   movies: InitialStateType;
   serials: initialStateTypeSerials;
-  auth: initialStateTypeAuth;
 }
 
 export const recommendedMovies = (state: RootState) =>
@@ -57,9 +56,6 @@ export const serialDetailsById = (state: RootState) =>
   state.serials.serialDetailsById;
 
 export const serialCast = (state: RootState) => state.serials.cast;
-
-export const user = (state: RootState) => state.auth.user;
-
 export const favoriteMovies = (state: RootState) => state.movies.favoriteMovies;
 
 export const youtubeVideoTrailer = (state: RootState) =>
