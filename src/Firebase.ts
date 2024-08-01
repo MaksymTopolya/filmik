@@ -5,7 +5,7 @@ import 'firebase/compat/firestore';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyC9tK1sZp_5QtMscA5Aqfe0RUdeETqPc_U',
-  authDomain: 'https://filmik-dc89a.web.app',
+  authDomain: 'movie-617c6.firebaseapp.com',
   projectId: 'movie-617c6',
   storageBucket: 'movie-617c6.appspot.com',
   messagingSenderId: '938317420353',
