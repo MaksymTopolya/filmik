@@ -37,7 +37,7 @@ const MoviesRender: FC<MoviesRenderProps> = ({
     return () => {
       clear();
     };
-  }, [dispatch, onDispatch, isFirstRender, clear]);
+  }, [dispatch, onDispatch, isFirstRender, clear, page]);
 
   const loadMore = () => {
     setPage(page + 1);

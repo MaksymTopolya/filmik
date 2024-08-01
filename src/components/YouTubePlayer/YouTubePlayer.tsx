@@ -30,7 +30,7 @@ const MyYouTubePlayer: React.FC<MyYouTubePlayerProps> = ({
     };
 
     fetchVideoTrailer();
-  }, [dispatch, movieId]);
+  }, [dispatch, movieId, myDispatch]);
 
   if (!video?.key) {
     return <div id="player" ref={playerRef}></div>;
