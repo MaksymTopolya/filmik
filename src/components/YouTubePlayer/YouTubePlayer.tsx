@@ -19,7 +19,6 @@ const MyYouTubePlayer: React.FC<MyYouTubePlayerProps> = ({
   const playerRef = useRef<HTMLDivElement>(null);
   const dispatch = useTypedDispatch();
   const video = useTypedSelector(mySelector);
-
   useEffect(() => {
     const fetchVideoTrailer = async () => {
       try {

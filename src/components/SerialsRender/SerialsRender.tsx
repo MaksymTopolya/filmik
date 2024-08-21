@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { RootState } from '../../redux/selectors';
 import { Movie } from '../../types';
 import { useTypedDispatch, useTypedSelector } from '../../hooks';
@@ -27,18 +27,14 @@ const SerialsRender: FC<SerialsRenderProps> = ({
   const serialsWithPoster = serials.filter(
     (movie) => movie.poster_path !== null,
   );
-  const isFirstRender = useRef(true);
 
   useEffect(() => {
-    if (!isFirstRender.current) {
-      dispatch(onDispatch(page));
-    } else {
-      isFirstRender.current = false;
-    }
+    dispatch(onDispatch(page));
+
     return () => {
       clear();
     };
-  }, [dispatch, onDispatch, isFirstRender, clear]);
+  }, []);
 
   const loadMore = () => {
     setPage(page + 1);

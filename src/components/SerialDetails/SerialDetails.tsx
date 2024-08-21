@@ -23,7 +23,6 @@ export const SerialDetails = () => {
   const dispatch = useTypedDispatch();
   const details: Movie = useTypedSelector(serialDetailsById);
   const { user } = useUser();
-  console.log(serialId);
   useEffect(() => {
     const fetchFilm = async () => {
       try {

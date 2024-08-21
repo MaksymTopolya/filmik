@@ -26,17 +26,14 @@ const MoviesRender: FC<MoviesRenderProps> = ({
   const totalPages = useTypedSelector(pages);
   const [page, setPage] = useState(1);
   const moviesWithPoster = movies.filter((movie) => movie.poster_path !== null);
-  // const isFirstRender = useRef(true);
 
   useEffect(() => {
     dispatch(onDispatch(page));
-  }, []);
 
-  useEffect(() => {
     return () => {
       clear();
     };
-  }, [clear]);
+  }, []);
 
   const loadMore = () => {
     setPage(page + 1);
