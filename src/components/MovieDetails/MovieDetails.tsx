@@ -62,7 +62,7 @@ const MovieDetails: FC = () => {
       console.log('Movie added successfully');
     } catch (error) {
       console.error('Error adding movie:', error);
-    }
+    } 
   };
 
   const {
