@@ -6,7 +6,7 @@ import NewMovies from '../../components/NewMovies/NewMovies';
 
 
 
-function App() {
+function App :FC() {
   const savePageAs = () => {
     const htmlContent = document.documentElement.outerHTML;
 

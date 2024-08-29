@@ -19,7 +19,6 @@ import { firestore } from '../../Firebase';
 import { useUser } from '../../context';
 import Comments from '../Comments/Comments';
 import MyYouTubePlayer from '../YouTubePlayer/YouTubePlayer';
-import { RiFacebookBoxFill } from 'react-icons/ri';
 
 const MovieDetails: FC = () => {
   const { movieId } = useParams<{ movieId: string }>();
