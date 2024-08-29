@@ -11,7 +11,7 @@ interface DeferredPromptEvent extends Event {
 const MobileDownload: React.FC = () => {
 
   const [deferredPrompt, setDeferredPrompt] = useState<DeferredPromptEvent | null>(null);
-  const [showButton, setShowButton] = useState<boolean>(false);
+  const [showButton, setShowButton] = useState<boolean>(true);
 
   useEffect(() => {
     const handleBeforeInstallPrompt = (event: Event) => {
