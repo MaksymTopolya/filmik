@@ -1,24 +1,20 @@
 import React, { useState, useEffect } from 'react';
 
-
 interface DeferredPromptEvent extends Event {
   prompt: () => Promise<void>;
-  userChoice: Promise<{
-    outcome: 'accepted' | 'dismissed';
-  }>;
+  userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>;
 }
 
 const MobileDownload: React.FC = () => {
-
   const [deferredPrompt, setDeferredPrompt] = useState<DeferredPromptEvent | null>(null);
-  const [showButton, setShowButton] = useState<boolean>(true);
+  const [showButton, setShowButton] = useState<boolean>(false);
 
   useEffect(() => {
     const handleBeforeInstallPrompt = (event: Event) => {
-      const e = event as DeferredPromptEvent; 
-      e.preventDefault(); 
-      setDeferredPrompt(e); 
-      setShowButton(true); 
+      event.preventDefault(); // Prevent the default mini-infobar
+      console.log('beforeinstallprompt event fired');
+      setDeferredPrompt(event as DeferredPromptEvent); // Save the event
+      setShowButton(true); // Show the custom button
     };
 
     window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt as EventListener);
@@ -38,20 +34,21 @@ const MobileDownload: React.FC = () => {
           } else {
             console.log('User dismissed the A2HS prompt');
           }
-          setDeferredPrompt(null);
-          setShowButton(false); 
+          setDeferredPrompt(null); 
+          setShowButton(false);
         });
     }
   };
 
   return (
     <div className="App">
-      <h1>Download to your mobile screen</h1>
+      <h1>Add to Your Mobile Screen</h1>
       {showButton && (
         <button className="add-to-home-screen" onClick={handleAddToHomeScreen}>
           Add to Home Screen
         </button>
       )}
+      {!showButton && <p>The "Add to Home Screen" prompt is not available yet.</p>}
     </div>
   );
 };
